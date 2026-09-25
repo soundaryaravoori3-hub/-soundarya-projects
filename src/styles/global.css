@@ -415,6 +415,7 @@ img { max-width: 100%; display: block; }
   border-bottom: 2px solid var(--sky-100); position: relative;
 }
 .skill-card h3::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 32px; height: 2px; background: var(--yellow-400); }
+.skill-source { margin: -4px 0 14px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; color: var(--sky-500); }
 .skill-card ul { list-style: none; display: grid; gap: 10px; }
 .skill-card li { font-size: 0.95rem; color: var(--ink); padding-left: 22px; position: relative; }
 .skill-card li::before {
@@ -425,7 +426,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 860px) { .skill-grid { grid-template-columns: 1fr; } }
 
 /* ── Tools ────────────────────────────────────────────────────────────────── */
-.tool-grid { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tool-grid { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .tool-card {
   display: flex; gap: 16px; align-items: flex-start; padding: 22px; border-radius: var(--radius);
   border: 1px solid var(--line); background: var(--white); box-shadow: var(--shadow);
@@ -435,9 +436,11 @@ img { max-width: 100%; display: block; }
   background: var(--navy-900); color: var(--sky-300); font-family: var(--font-display); font-size: 1.3rem; font-weight: 600;
 }
 .tool-name { font-weight: 600; color: var(--navy-900); }
+.tool-source { margin-top: 4px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; color: var(--sky-500); }
 .tool-use { font-size: 0.9rem; color: var(--ink-muted); margin-top: 2px; }
 
-@media (max-width: 760px) { .tool-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) { .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .tool-grid { grid-template-columns: 1fr; } }
 
 /* ── Contact & footer ─────────────────────────────────────────────────────── */
 .contact { padding-bottom: 0; }

@@ -17,7 +17,7 @@ export const site = {
   initials: 'SR',
   title: 'Soundarya Ravoori | Product Management, Operations & Project Delivery',
   description:
-    'MBA-qualified professional with experience across product delivery, project coordination and operations, now working in an IT/MES role at Kryon Technology.',
+    'MBA-qualified professional with experience across product delivery, project coordination and operations. Currently IT / MES Assistant Manager at Kryon Technology.',
 };
 
 export const nav = [
@@ -41,7 +41,7 @@ export const hero = {
   positioning: ['Product Management', 'Operations', 'Project Delivery'],
   headline: 'I turn product plans and operational priorities into delivered results.',
   intro:
-    'MBA-qualified professional with experience across product delivery, project coordination and operations, now working in an IT/MES role at Kryon Technology with exposure to SAP, MES and manufacturing technology.',
+    'MBA-qualified professional with experience across product delivery, project coordination and operations. Currently IT / MES Assistant Manager at Kryon Technology, working across SAP, MES and manufacturing technology.',
   targetRoles: ['Product Manager', 'Operations Manager', 'Project Manager'],
   qualifications: 'B.Tech, Computer Science Engineering · MBA, Project Management',
   // Career highlights from previous roles. Each shows its source employer.
@@ -59,7 +59,7 @@ export const about = {
   title: 'Technical foundation, delivery experience.',
   paragraphs: [
     'I combine a B.Tech in Computer Science Engineering with an MBA in Project Management.',
-    'My experience spans product management, project coordination and operations. I am now building manufacturing technology experience in an IT/MES role.',
+    'My experience spans product management, project coordination and operations, and my current role is in IT and MES for manufacturing technology.',
   ],
   facts: [
     { label: 'Product', value: 'Roadmaps, priorities, milestones, dependencies and cross-functional handovers' },
@@ -85,7 +85,8 @@ export const experience: Role[] = [
   {
     ...currentRole,
     status: 'Current',
-    summary: 'IT/MES role with exposure to SAP, MES and manufacturing technology.',
+    summary: 'Current IT / MES role, working across SAP, MES and manufacturing technology.',
+    points: ['Builds on earlier MES and SAP production experience at Tesco.'],
     tags: ['IT', 'MES', 'SAP', 'Manufacturing technology'],
   },
   {
@@ -93,12 +94,11 @@ export const experience: Role[] = [
     organisation: 'Station-S',
     period: 'March 2025 – January 2026',
     points: [
-      'Delivered four concurrent software products on schedule and reduced cross-team blockers by 30%, in a 20-person delivery environment.',
-      'Managed roadmaps, priorities, milestones, dependencies and cross-functional handovers.',
+      'Managed roadmaps, priorities, milestones, dependencies and cross-functional handovers across concurrent software products.',
       'Coordinated design, development and strategy teams.',
     ],
     tags: ['Product roadmaps', 'Jira', 'Asana', 'Notion'],
-    link: { label: 'Read the case study', href: '#projects' },
+    link: { label: 'Results in the case study', href: '#projects' },
   },
   {
     title: 'Project Coordinator',
@@ -147,10 +147,10 @@ export const projects: Project[] = [
     challenge:
       'Keep four software products moving at the same time, with design, development and strategy teams depending on each other.',
     actions: [
-      'Structured the work into clear workstreams.',
+      'Structured workstreams.',
       'Managed priorities and dependencies across products.',
       'Maintained roadmaps and monitored milestones.',
-      'Escalated delivery risks early.',
+      'Escalated delivery risks.',
       'Coordinated cross-functional handovers.',
     ],
     results: [
@@ -164,16 +164,16 @@ export const projects: Project[] = [
 
 /* ── Manufacturing technology ─────────────────────────────────────────────── */
 export const manufacturing = {
-  lead: 'Building practical SAP and MES experience in my current IT/MES role.',
+  lead: 'IT / MES is my current role, building on earlier SAP and MES production experience at Tesco.',
   path: [
     { step: 'Computer Science', detail: 'B.Tech, Computer Science Engineering' },
     { step: 'Product, project & operations', detail: 'Station-S, Sannie Medical and Tesco' },
     { step: 'IT / MES', detail: 'IT / MES Assistant Manager, Kryon Technology', current: true },
   ],
-  exposure: [
-    { name: 'SAP & MES', where: 'Current IT/MES role at Kryon Technology' },
-    { name: 'MES', where: 'Production status monitoring at Tesco' },
-    { name: 'SAP', where: 'Production tracking at Tesco' },
+  systems: [
+    { name: 'SAP & MES', where: 'Current IT / MES role' },
+    { name: 'MES', where: 'Production status monitoring, Tesco' },
+    { name: 'SAP', where: 'Production tracking, Tesco' },
   ],
   bridges: [
     { from: 'Cross-functional coordination', to: 'Aligning IT, operations and production teams' },
@@ -183,44 +183,46 @@ export const manufacturing = {
 };
 
 /* ── Skills & tools ───────────────────────────────────────────────────────── */
+// Every skill must trace to Kryon Technology, Station-S, Sannie Medical or Tesco.
 export const skills = [
   {
     group: 'Product & delivery',
+    source: 'Station-S',
     items: [
       'Product roadmaps',
-      'Requirements gathering',
       'Prioritisation',
       'Milestone tracking',
-      'Dependency tracking',
-      'Risk & issue management',
-      'Stakeholder coordination',
-      'Release coordination',
+      'Dependency management',
+      'Cross-functional coordination',
+      'Cross-functional handovers',
+      'Delivery risk escalation',
     ],
   },
   {
-    group: 'Operations',
+    group: 'Project coordination & operations',
+    source: 'Sannie Medical · Tesco',
     items: [
-      'Supplier coordination',
-      'Purchase orders',
-      'Invoice processing',
-      'Compliance',
-      'Escalation management',
-      'Scheduling',
+      'Requirements gathering',
+      'Risk & issue tracking',
+      'Workstream coordination',
+      'Software rollout coordination',
+      'Appointment scheduling',
+      'Financial & administrative records',
+      'Production oversight',
     ],
   },
   {
-    group: 'Manufacturing technology',
-    items: ['SAP production tracking', 'MES production monitoring', 'Production oversight', 'Manufacturing operations'],
+    group: 'Manufacturing & systems',
+    source: 'Kryon Technology · Tesco',
+    items: ['SAP', 'MES', 'Production status monitoring', 'Production tracking'],
   },
 ];
 
-export const tools: { name: string; use?: string }[] = [
-  { name: 'Jira', use: 'Roadmaps and delivery tracking' },
-  { name: 'Asana', use: 'Roadmaps and task coordination' },
-  { name: 'Notion', use: 'Roadmaps and documentation' },
-  { name: 'SAP', use: 'Production tracking and IT/MES work' },
-  { name: 'Sage', use: 'Financial and administrative records' },
-  { name: 'Microsoft 365' },
+export const tools: { name: string; use: string; source: string }[] = [
+  { name: 'Jira', use: 'Roadmaps and delivery tracking', source: 'Station-S' },
+  { name: 'Asana', use: 'Roadmaps and task coordination', source: 'Station-S' },
+  { name: 'Notion', use: 'Roadmaps and documentation', source: 'Station-S' },
+  { name: 'Sage', use: 'Financial and administrative records', source: 'Sannie Medical' },
 ];
 
 /* ── Education ────────────────────────────────────────────────────────────── */
@@ -236,7 +238,7 @@ export const education = [
 /* ── Contact ──────────────────────────────────────────────────────────────── */
 export const contact = {
   heading: "Let's talk.",
-  text: 'Open to conversations with recruiters and hiring teams.',
+  text: 'Open to conversations with recruiters and hiring teams about Product Manager, Operations Manager and Project Manager roles.',
   // Add your details here when ready; the cards appear automatically. Examples:
   //   { label: 'Email', value: 'you@example.com', href: 'mailto:you@example.com' },
   //   { label: 'LinkedIn', value: 'linkedin.com/in/your-name', href: 'https://www.linkedin.com/in/your-name' },

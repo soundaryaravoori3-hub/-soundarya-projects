@@ -46,13 +46,12 @@ npm run check          # type-check the project
 
 The site only shows information that has been verified. Details that aren't available yet (contact details, CV, photo) are left out rather than shown as gaps.
 
-Many fields in `content.ts` are marked **optional**. Add one and it appears on the site automatically. Leave it out and it's hidden cleanly. For example, to add an employer and dates to a role:
+Many fields in `content.ts` are marked **optional**. Add one and it appears on the site automatically. Leave it out and it's hidden cleanly. For example, to add dates to a role:
 
 ```ts
 {
-  label: 'Operations',
-  title: 'Supplier Operations',
-  organisation: 'Company name',     // optional
+  title: 'Product Manager',
+  organisation: 'Company name',
   period: 'Jan 2023 – Dec 2024',    // optional
   ...
 }
