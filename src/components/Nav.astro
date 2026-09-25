@@ -1,0 +1,23 @@
+---
+import { nav, site } from '../data/content';
+---
+<header class="site-nav" data-nav>
+  <div class="container nav-inner">
+    <a href="#home" class="brand" aria-label={`${site.name}, back to top`}>
+      <span class="brand-mark">{site.initials}</span>
+      <span class="brand-name">{site.name}</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
+      <span class="sr-only">Menu</span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav id="nav-menu" class="nav-menu" aria-label="Main">
+      <ul>
+        {nav.map((item) => (
+          <li><a href={item.href} data-nav-link>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

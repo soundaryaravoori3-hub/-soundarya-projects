@@ -1,0 +1,37 @@
+---
+import { projects } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+import Rich from './Rich.astro';
+---
+<section id="projects" class="section">
+  <div class="container">
+    <SectionHeader
+      index="04"
+      eyebrow="Projects"
+      title="Selected work."
+      lead="Each project follows the same structure: context, my role, how I approached it, and the outcome."
+    />
+    <div class="project-grid">
+      {projects.map((p) => (
+        <article class="project-card reveal">
+          <p class="project-category"><Rich text={p.category} /></p>
+          <h3><Rich text={p.title} /></h3>
+          <dl class="project-body">
+            <div><dt>Context</dt><dd><Rich text={p.context} /></dd></div>
+            <div><dt>My role</dt><dd><Rich text={p.role} /></dd></div>
+            <div>
+              <dt>Approach</dt>
+              <dd><ul>{p.approach.map((a) => <li><Rich text={a} /></li>)}</ul></dd>
+            </div>
+            <div class="project-outcome"><dt>Outcome</dt><dd><Rich text={p.outcome} /></dd></div>
+          </dl>
+          {p.tools && (
+            <ul class="tags" aria-label="Tools used">
+              {p.tools.map((t) => <li>{t}</li>)}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

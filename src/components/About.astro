@@ -1,0 +1,32 @@
+---
+import { about } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+import Rich from './Rich.astro';
+---
+<section id="about" class="section">
+  <div class="container">
+    <SectionHeader index="01" eyebrow="About" title="Planning discipline, operational follow-through." />
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        {about.paragraphs.map((p) => <p><Rich text={p} /></p>)}
+      </div>
+      <dl class="fact-card reveal">
+        {about.facts.map((f) => (
+          <div class="fact">
+            <dt>{f.label}</dt>
+            <dd><Rich text={f.value} /></dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+    <div class="pillars">
+      {about.pillars.map((p, i) => (
+        <article class="pillar reveal">
+          <span class="pillar-num">0{i + 1}</span>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

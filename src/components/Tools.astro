@@ -1,0 +1,21 @@
+---
+import { tools } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+import Rich from './Rich.astro';
+---
+<section id="tools" class="section">
+  <div class="container">
+    <SectionHeader index="06" eyebrow="Tools" title="The tools I work in." />
+    <ul class="tool-grid">
+      {tools.map((t) => (
+        <li class="tool-card reveal">
+          <span class="tool-mark" aria-hidden="true">{t.name.startsWith('[') ? '+' : t.name.charAt(0)}</span>
+          <div>
+            <p class="tool-name"><Rich text={t.name} /></p>
+            <p class="tool-use"><Rich text={t.use} /></p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

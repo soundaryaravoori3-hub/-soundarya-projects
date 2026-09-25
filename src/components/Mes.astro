@@ -1,0 +1,42 @@
+---
+import { mes } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+import Rich from './Rich.astro';
+---
+<section id="mes" class="section section-dark">
+  <div class="container">
+    <SectionHeader index="03" eyebrow="MES & Manufacturing" title="Bringing operations experience to the shop floor." lead={mes.intro} tone="dark" />
+
+    <h3 class="sub-heading on-dark reveal">What MES connects</h3>
+    <div class="domain-grid">
+      {mes.domain.map((d, i) => (
+        <article class="domain-card reveal">
+          <span class="domain-step">{String(i + 1).padStart(2, '0')}</span>
+          <h4>{d.title}</h4>
+          <p>{d.text}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mes-split">
+      <div class="reveal">
+        <h3 class="sub-heading on-dark">How my experience carries over</h3>
+        <ul class="bridges">
+          {mes.bridges.map((b) => (
+            <li class="bridge">
+              <p class="bridge-from"><span class="bridge-label">Experience</span>{b.from}</p>
+              <span class="bridge-arrow" aria-hidden="true">→</span>
+              <p class="bridge-to"><span class="bridge-label">Applied to MES</span>{b.to}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="learning-card reveal">
+        <h3 class="sub-heading">Learning & development</h3>
+        <ul>
+          {mes.learning.map((l) => <li><Rich text={l} /></li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

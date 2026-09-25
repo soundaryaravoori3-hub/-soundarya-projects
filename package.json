@@ -1,0 +1,22 @@
+{
+  "name": "soundarya-ravoori-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Professional portfolio website for Soundarya Ravoori — Product, Project & Operations.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "placeholders": "node scripts/list-placeholders.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.3.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "^26.6.2",
+    "typescript": "^6.0.3"
+  }
+}

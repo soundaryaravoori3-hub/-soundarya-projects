@@ -1,0 +1,18 @@
+---
+// Renders text and highlights any [PLACEHOLDER: ...] segments.
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+const parts = text.split(/(\[PLACEHOLDER:[^\]]*\])/g).filter(Boolean);
+---
+{parts.map((part) => {
+  const m = part.match(/^\[PLACEHOLDER:\s*([^\]]*)\]$/);
+  return m ? (
+    <span class="ph" title="Placeholder: edit src/data/content.ts">
+      <span class="ph-tag">To add</span>{m[1]}
+    </span>
+  ) : (
+    part
+  );
+})}
