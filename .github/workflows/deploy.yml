@@ -27,9 +27,14 @@ jobs:
         uses: actions/configure-pages@v5
       - run: npm ci
       - run: npm run build
-        env:
-          SITE_URL: ${{ steps.pages.outputs.origin }}
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+      # The site is served from the domain root. Stop the deploy if the build
+      # references assets under any sub-path (e.g. an old repository name).
+      - name: Check asset paths are root-relative
+        run: |
+          grep -q 'href="/_astro/' dist/index.html
+          if grep -rEo '(href|src)="/[^_"#][^"]*/_astro/' dist; then
+            echo "::error::Build references assets outside the site root"; exit 1
+          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

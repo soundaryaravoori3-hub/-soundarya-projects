@@ -105,13 +105,13 @@ The site builds to static files in `dist/`, so you can host it almost anywhere f
 
 The portfolio is published as a GitHub **user site** at **https://soundaryaravoori3-hub.github.io/**. For that, the repository must be named exactly `soundaryaravoori3-hub.github.io`. GitHub serves a repository with that name from the root of the domain, and any other name from `/<repository-name>/`.
 
-The workflow reads the correct address and base path from GitHub (`actions/configure-pages`) on every build. You don't need to change any code if the repository is renamed.
+The site address and base path (`/`) are set in `astro.config.mjs`. The deploy workflow checks that every asset path starts at the site root before it publishes.
 
 ### Option 2: Netlify or Vercel
 
 1. Import the repository in [Netlify](https://app.netlify.com) or [Vercel](https://vercel.com).
 2. Build command: `npm run build`. Output directory: `dist`.
-3. Don't set `BASE_PATH`. The site is served from the root.
+3. The site is built for the root path, so no extra settings are needed.
 
 ### Custom domain
 
