@@ -1,0 +1,47 @@
+---
+import { hero, site } from '../data/content';
+const photo = hero.photo ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${hero.photo}` : '';
+---
+<section id="home" class="hero">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow on-dark reveal">{hero.eyebrow}</p>
+      <h1 class="reveal">
+        <span class="hero-name">{site.name}</span>
+        <span class="hero-headline">{hero.headline}</span>
+      </h1>
+      <p class="hero-intro reveal">{hero.intro}</p>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="#experience">View experience</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+      <ul class="role-list reveal" aria-label="Roles I am targeting">
+        {hero.targetRoles.map((r) => <li>{r}</li>)}
+      </ul>
+    </div>
+
+    <aside class="hero-card reveal" aria-label="At a glance">
+      <div class="hero-card-top">
+        {photo ? (
+          <img class="avatar" src={photo} alt={`Portrait of ${site.name}`} width="72" height="72" />
+        ) : (
+          <div class="avatar avatar-initials" aria-hidden="true">{site.initials}</div>
+        )}
+        <div>
+          <p class="hero-card-name">{site.name}</p>
+          <p class="hero-card-role">MBA, Project Management</p>
+          <p class="hero-card-next"><span class="dot"></span>Next: IT/MES at Kryon Technology</p>
+        </div>
+      </div>
+      <dl class="stats">
+        {hero.highlights.map((h) => (
+          <div class="stat">
+            <dt>{h.label}</dt>
+            <dd>{h.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </aside>
+  </div>
+</section>
