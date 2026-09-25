@@ -1,11 +1,10 @@
 ---
 import { mes } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
-import Rich from './Rich.astro';
 ---
 <section id="mes" class="section section-dark">
   <div class="container">
-    <SectionHeader index="03" eyebrow="MES & Manufacturing" title="Bringing operations experience to the shop floor." lead={mes.intro} tone="dark" />
+    <SectionHeader index="03" eyebrow="MES & Manufacturing" title="Developing into manufacturing technology." lead={mes.intro} tone="dark" />
 
     <h3 class="sub-heading on-dark reveal">What MES connects</h3>
     <div class="domain-grid">
@@ -20,22 +19,21 @@ import Rich from './Rich.astro';
 
     <div class="mes-split">
       <div class="reveal">
-        <h3 class="sub-heading on-dark">How my experience carries over</h3>
+        <h3 class="sub-heading on-dark">How my experience is relevant</h3>
         <ul class="bridges">
           {mes.bridges.map((b) => (
             <li class="bridge">
               <p class="bridge-from"><span class="bridge-label">Experience</span>{b.from}</p>
               <span class="bridge-arrow" aria-hidden="true">→</span>
-              <p class="bridge-to"><span class="bridge-label">Applied to MES</span>{b.to}</p>
+              <p class="bridge-to"><span class="bridge-label">Why it matters for MES</span>{b.to}</p>
             </li>
           ))}
         </ul>
       </div>
-      <div class="learning-card reveal">
-        <h3 class="sub-heading">Learning & development</h3>
-        <ul>
-          {mes.learning.map((l) => <li><Rich text={l} /></li>)}
-        </ul>
+      <div class="focus-card reveal">
+        <p class="status-pill">Developing</p>
+        <h3 class="sub-heading">Current focus</h3>
+        <p>{mes.currentFocus}</p>
       </div>
     </div>
   </div>

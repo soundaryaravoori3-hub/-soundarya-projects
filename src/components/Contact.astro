@@ -1,34 +1,33 @@
 ---
 import { contact, site } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
-import Rich from './Rich.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const year = new Date().getFullYear();
 ---
 <section id="contact" class="section section-dark contact">
   <div class="container">
     <SectionHeader index="07" eyebrow="Contact" title={contact.heading} lead={contact.text} tone="dark" />
-    <ul class="contact-grid">
-      {contact.channels.map((c) => (
-        <li class="contact-card reveal">
-          <p class="contact-label">{c.label}</p>
-          {c.href ? (
-            <a class="contact-value" href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener">
-              {c.value}
-            </a>
-          ) : (
-            <p class="contact-value"><Rich text={c.value} /></p>
-          )}
-        </li>
-      ))}
-    </ul>
-    <div class="contact-actions reveal">
-      {contact.resume ? (
+    {contact.channels.length > 0 && (
+      <ul class="contact-grid">
+        {contact.channels.map((c) => (
+          <li class="contact-card reveal">
+            <p class="contact-label">{c.label}</p>
+            {c.href ? (
+              <a class="contact-value" href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener">
+                {c.value}
+              </a>
+            ) : (
+              <p class="contact-value">{c.value}</p>
+            )}
+          </li>
+        ))}
+      </ul>
+    )}
+    {contact.resume && (
+      <div class="contact-actions reveal">
         <a class="btn btn-primary" href={`${base}/${contact.resume}`} download>Download CV</a>
-      ) : (
-        <p class="contact-note"><Rich text="[PLACEHOLDER: Add your CV (see README) to show a Download CV button]" /></p>
-      )}
-    </div>
+      </div>
+    )}
   </div>
   <footer class="site-footer">
     <div class="container footer-inner">

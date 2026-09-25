@@ -1,7 +1,6 @@
 ---
 import { tools } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
-import Rich from './Rich.astro';
 ---
 <section id="tools" class="section">
   <div class="container">
@@ -9,10 +8,10 @@ import Rich from './Rich.astro';
     <ul class="tool-grid">
       {tools.map((t) => (
         <li class="tool-card reveal">
-          <span class="tool-mark" aria-hidden="true">{t.name.startsWith('[') ? '+' : t.name.charAt(0)}</span>
+          <span class="tool-mark" aria-hidden="true">{t.name.charAt(0)}</span>
           <div>
-            <p class="tool-name"><Rich text={t.name} /></p>
-            <p class="tool-use"><Rich text={t.use} /></p>
+            <p class="tool-name">{t.name}</p>
+            <p class="tool-use">{t.use}</p>
           </div>
         </li>
       ))}
