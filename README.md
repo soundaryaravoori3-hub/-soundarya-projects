@@ -1,6 +1,6 @@
 # Soundarya Ravoori — Portfolio
 
-A professional portfolio for **Soundarya Ravoori**, an MBA-qualified Product and Operations Manager working across product management, operations, project delivery and manufacturing technology.
+A professional portfolio for **Soundarya Ravoori**, an MBA-qualified professional with experience across product management, project delivery and operations, currently IT / MES Assistant Manager at Kryon Technology.
 
 It is a single-page site with these sections: **Home, About, Experience, Selected work, Manufacturing Technology, Skills & tools, Education and Contact**. The colours are navy, sky blue and white with a subtle yellow accent, and the layout works on phones as well as desktops.
 
