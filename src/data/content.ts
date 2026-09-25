@@ -10,14 +10,14 @@
  *  Fields marked "optional" can be left out. The site hides them cleanly.
  */
 
-export type Metric = { value: string; label: string };
+export type Metric = { value: string; label: string; source?: string };
 
 export const site = {
   name: 'Soundarya Ravoori',
   initials: 'SR',
-  title: 'Soundarya Ravoori | Product Management & Operations',
+  title: 'Soundarya Ravoori | Product Management, Operations & Project Delivery',
   description:
-    'MBA-qualified Product and Operations Manager with experience across product delivery, operational planning, supplier coordination and manufacturing technology.',
+    'MBA-qualified professional with experience across product delivery, project coordination and operations, now working in an IT/MES role at Kryon Technology.',
 };
 
 export const nav = [
@@ -30,21 +30,25 @@ export const nav = [
   { label: 'Contact', href: '#contact' },
 ];
 
+/* ── Current role (used in the hero card, About and Experience) ───────────── */
+export const currentRole = {
+  title: 'IT / MES Assistant Manager',
+  organisation: 'Kryon Technology',
+};
+
 /* ── Home ─────────────────────────────────────────────────────────────────── */
 export const hero = {
-  positioning: ['Product Management', 'Operations', 'Project Delivery', 'Manufacturing Technology'],
+  positioning: ['Product Management', 'Operations', 'Project Delivery'],
   headline: 'I turn product plans and operational priorities into delivered results.',
   intro:
-    'MBA-qualified Product and Operations Manager with experience across product delivery, operational planning, supplier coordination and manufacturing technology. I’ve managed concurrent product workstreams, coordinated cross-functional teams and worked with SAP and MES environments.',
-  targetRoles: ['Product Manager', 'Operations Manager', 'Project Manager', 'Manufacturing Technology'],
-  qualifications: 'MBA, Project Management · B.Tech, Computer Science Engineering',
-  current: 'Product Manager / Operations Manager, Mollington Banastre',
-  // Headline figures shown in the hero card. Only use verified numbers.
+    'MBA-qualified professional with experience across product delivery, project coordination and operations, now working in an IT/MES role at Kryon Technology with exposure to SAP, MES and manufacturing technology.',
+  targetRoles: ['Product Manager', 'Operations Manager', 'Project Manager'],
+  qualifications: 'B.Tech, Computer Science Engineering · MBA, Project Management',
+  // Career highlights from previous roles. Each shows its source employer.
   highlights: [
-    { value: '4', label: 'Concurrent software products delivered on schedule' },
-    { value: '30%', label: 'Reduction in cross-team blockers' },
-    { value: '40', label: 'Team members across four concurrent workstreams' },
-    { value: '50+', label: 'Appointments a month with zero scheduling errors' },
+    { value: '4', label: 'Concurrent software products delivered on schedule', source: 'Station-S' },
+    { value: '30%', label: 'Reduction in cross-team blockers', source: 'Station-S' },
+    { value: '50+', label: 'Appointments a month with zero scheduling errors', source: 'Sannie Medical' },
   ] as Metric[],
   // Optional: add a portrait at public/images/profile.jpg and set this to 'images/profile.jpg'.
   photo: '',
@@ -52,15 +56,15 @@ export const hero = {
 
 /* ── About ────────────────────────────────────────────────────────────────── */
 export const about = {
-  title: 'Product, operations and project delivery.',
+  title: 'Technical foundation, delivery experience.',
   paragraphs: [
-    'I work where planning meets execution: turning roadmaps, priorities and operational plans into coordinated delivery across teams.',
-    'My background combines a B.Tech in Computer Science Engineering with an MBA in Project Management, applied across software product delivery, operations and purchasing, and project coordination.',
+    'I combine a B.Tech in Computer Science Engineering with an MBA in Project Management.',
+    'My experience spans product management, project coordination and operations. I am now building manufacturing technology experience in an IT/MES role.',
   ],
   facts: [
     { label: 'Product', value: 'Roadmaps, priorities, milestones, dependencies and cross-functional handovers' },
-    { label: 'Operations', value: 'SAP purchasing, supplier coordination, invoice verification and SOP compliance' },
     { label: 'Project delivery', value: 'Concurrent workstreams, requirements, risk logs and issue tracking' },
+    { label: 'Operations', value: 'Production oversight, appointment scheduling and administrative records' },
   ],
 };
 
@@ -68,43 +72,33 @@ export const about = {
 export type Role = {
   title: string;
   organisation: string;
-  period: string;
+  period?: string; // optional: add only a verified date range
   status?: string; // optional highlight, e.g. "Current"
+  summary?: string; // optional
   metrics?: Metric[]; // optional
   points?: string[]; // optional
   tags?: string[]; // optional
+  link?: { label: string; href: string }; // optional
 };
 
 export const experience: Role[] = [
   {
-    title: 'Product Manager / Operations Manager',
-    organisation: 'Mollington Banastre, UK',
-    period: 'March 2026 – Present',
+    ...currentRole,
     status: 'Current',
-    points: [
-      'Manage purchasing in SAP.',
-      'Coordinate suppliers and follow-ups.',
-      'Verify invoices against purchase orders and delivery notes.',
-      'Coordinate daily operational coverage for 10 team members.',
-      'Maintain SOP compliance and corrective-action documentation.',
-      'Resolve operational issues.',
-    ],
-    tags: ['SAP', 'Purchasing', 'Supplier Coordination', 'Purchase Orders', 'Invoice Verification', 'Operations', 'Compliance'],
+    summary: 'IT/MES role with exposure to SAP, MES and manufacturing technology.',
+    tags: ['IT', 'MES', 'SAP', 'Manufacturing technology'],
   },
   {
     title: 'Product Manager',
     organisation: 'Station-S',
     period: 'March 2025 – January 2026',
-    metrics: [
-      { value: '4', label: 'Concurrent software products delivered on schedule' },
-      { value: '30%', label: 'Reduction in cross-team blockers' },
-      { value: '20', label: 'Team members in delivery' },
-    ],
     points: [
+      'Delivered four concurrent software products on schedule and reduced cross-team blockers by 30%, in a 20-person delivery environment.',
       'Managed roadmaps, priorities, milestones, dependencies and cross-functional handovers.',
       'Coordinated design, development and strategy teams.',
     ],
-    tags: ['Product roadmaps', 'Delivery', 'Jira', 'Asana', 'Notion'],
+    tags: ['Product roadmaps', 'Jira', 'Asana', 'Notion'],
+    link: { label: 'Read the case study', href: '#projects' },
   },
   {
     title: 'Project Coordinator',
@@ -128,9 +122,9 @@ export const experience: Role[] = [
     organisation: 'Tesco',
     period: 'February 2021 – September 2022',
     points: [
-      'Oversaw production and manufacturing activities.',
-      'Monitored production status using MES.',
-      'Tracked production in SAP.',
+      'Production oversight across manufacturing activities.',
+      'Production status monitoring in MES.',
+      'Production tracking in SAP.',
     ],
     tags: ['Production oversight', 'Manufacturing', 'MES', 'SAP'],
   },
@@ -140,24 +134,23 @@ export const experience: Role[] = [
 export type Project = {
   title: string;
   category: string;
-  context?: string; // optional
-  role?: string; // optional
+  challenge?: string; // optional
   actions?: string[]; // optional
   results?: Metric[]; // optional: verified results only
-  tags?: string[]; // optional
+  tools?: string[]; // optional
 };
 
 export const projects: Project[] = [
   {
     title: 'Product Delivery & Roadmap Coordination',
-    category: 'Product · Station-S',
-    context: 'Four concurrent software products.',
-    role: 'Product Manager coordinating design, development and strategy.',
+    category: 'Product Management · Station-S',
+    challenge:
+      'Keep four software products moving at the same time, with design, development and strategy teams depending on each other.',
     actions: [
-      'Structured workstreams.',
-      'Managed priorities and dependencies.',
+      'Structured the work into clear workstreams.',
+      'Managed priorities and dependencies across products.',
       'Maintained roadmaps and monitored milestones.',
-      'Escalated delivery risks.',
+      'Escalated delivery risks early.',
       'Coordinated cross-functional handovers.',
     ],
     results: [
@@ -165,37 +158,27 @@ export const projects: Project[] = [
       { value: '30%', label: 'Fewer cross-team blockers' },
       { value: '20', label: 'Team members in delivery' },
     ],
-    tags: ['Jira', 'Asana', 'Notion'],
-  },
-  {
-    title: 'Supplier & Operational Coordination',
-    category: 'Operations · Mollington Banastre',
-    context: 'Operational purchasing and supplier coordination.',
-    actions: [
-      'SAP purchasing.',
-      'Supplier follow-ups.',
-      'Purchase-order coordination.',
-      'Invoice verification.',
-      'Operational compliance.',
-      'Issue escalation.',
-    ],
-    tags: ['SAP', 'Purchasing', 'Supplier Management', 'Compliance', 'Operations'],
+    tools: ['Jira', 'Asana', 'Notion'],
   },
 ];
 
 /* ── Manufacturing technology ─────────────────────────────────────────────── */
 export const manufacturing = {
-  intro:
-    'MES connects planning with shop-floor execution, production visibility, quality and traceability. This is how my experience applies.',
+  lead: 'Building practical SAP and MES experience in my current IT/MES role.',
+  path: [
+    { step: 'Computer Science', detail: 'B.Tech, Computer Science Engineering' },
+    { step: 'Product, project & operations', detail: 'Station-S, Sannie Medical and Tesco' },
+    { step: 'IT / MES', detail: 'IT / MES Assistant Manager, Kryon Technology', current: true },
+  ],
+  exposure: [
+    { name: 'SAP & MES', where: 'Current IT/MES role at Kryon Technology' },
+    { name: 'MES', where: 'Production status monitoring at Tesco' },
+    { name: 'SAP', where: 'Production tracking at Tesco' },
+  ],
   bridges: [
     { from: 'Cross-functional coordination', to: 'Aligning IT, operations and production teams' },
-    { from: 'Product roadmaps and delivery tracking', to: 'MES implementations, enhancements and rollout planning' },
-    { from: 'Supplier operations, purchase orders and compliance', to: 'Manufacturing supply and operational controls' },
-    { from: 'SAP and MES production exposure', to: 'Manufacturing technology environments' },
-  ],
-  systems: [
-    { name: 'MES', where: 'Production status monitoring at Tesco' },
-    { name: 'SAP', where: 'Production tracking at Tesco; purchasing at Mollington Banastre' },
+    { from: 'Roadmaps and milestone tracking', to: 'Planning system enhancements and rollouts' },
+    { from: 'Software rollout coordination and issue tracking', to: 'Supporting system changes on the shop floor' },
   ],
 };
 
@@ -219,16 +202,15 @@ export const skills = [
     items: [
       'Supplier coordination',
       'Purchase orders',
-      'Invoice verification',
-      'Operational planning',
-      'Staff scheduling',
-      'SOP compliance',
+      'Invoice processing',
+      'Compliance',
       'Escalation management',
+      'Scheduling',
     ],
   },
   {
     group: 'Manufacturing technology',
-    items: ['SAP purchasing', 'SAP production oversight', 'MES', 'Production monitoring', 'Manufacturing operations'],
+    items: ['SAP production tracking', 'MES production monitoring', 'Production oversight', 'Manufacturing operations'],
   },
 ];
 
@@ -236,7 +218,7 @@ export const tools: { name: string; use?: string }[] = [
   { name: 'Jira', use: 'Roadmaps and delivery tracking' },
   { name: 'Asana', use: 'Roadmaps and task coordination' },
   { name: 'Notion', use: 'Roadmaps and documentation' },
-  { name: 'SAP', use: 'Purchasing and production tracking' },
+  { name: 'SAP', use: 'Production tracking and IT/MES work' },
   { name: 'Sage', use: 'Financial and administrative records' },
   { name: 'Microsoft 365' },
 ];

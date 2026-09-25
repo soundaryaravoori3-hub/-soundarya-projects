@@ -10,12 +10,13 @@ import Metrics from './Metrics.astro';
       {experience.map((role) => (
         <li class="timeline-item reveal">
           <div class="timeline-meta">
-            <p class="timeline-period">{role.period}</p>
+            {role.period && <p class="timeline-period">{role.period}</p>}
             {role.status && <p class="status-pill">{role.status}</p>}
           </div>
           <article class="role-card">
             <h3>{role.title}</h3>
             <p class="role-org">{role.organisation}</p>
+            {role.summary && <p class="role-summary">{role.summary}</p>}
             {role.metrics && role.metrics.length > 0 && <Metrics items={role.metrics} label="Key results" />}
             {role.points && role.points.length > 0 && (
               <ul class="role-points">
@@ -27,6 +28,7 @@ import Metrics from './Metrics.astro';
                 {role.tags.map((t) => <li>{t}</li>)}
               </ul>
             )}
+            {role.link && <a class="role-link" href={role.link.href}>{role.link.label} →</a>}
           </article>
         </li>
       ))}
