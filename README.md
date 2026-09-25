@@ -34,7 +34,6 @@ Other commands:
 npm run build          # build the finished site into dist/
 npm run preview        # preview the built site
 npm run check          # type-check the project
-npm run placeholders   # list every placeholder you still need to fill in
 ```
 
 ---
@@ -43,23 +42,23 @@ npm run placeholders   # list every placeholder you still need to fill in
 
 **Almost everything you will want to change is in `src/data/content.ts`.** The file is split into sections (Home, About, Experience, and so on) that match the website.
 
-### Placeholders
+### Adding information later
 
-Wherever information was missing, the site shows a highlighted yellow marker labelled **TO ADD**. In `content.ts` each one looks like this:
+The site only shows information that has been verified. Details that aren't known yet (employers, dates, university, contact details, CV, MES training) are left out rather than shown as gaps.
 
-```ts
-'[PLACEHOLDER: University]'
-```
-
-Replace the whole bracket with your information:
+Many fields in `content.ts` are marked **optional**. Add one and it appears on the site automatically. Leave it out and it's hidden cleanly. For example, to add an employer and dates to a role:
 
 ```ts
-'University of Example'
+{
+  label: 'Operations',
+  title: 'Supplier Operations',
+  organisation: 'Company name',     // optional
+  period: 'Jan 2023 – Dec 2024',    // optional
+  ...
+}
 ```
 
-Run `npm run placeholders` to see which ones are left, with line numbers. **Fill in or remove them all before you share the site.**
-
-> **Content rule:** the site only contains facts you provided. Please keep it that way: add only achievements, employers, metrics and technical skills you can talk about in an interview.
+> **Content rule:** the site only contains facts you provided. Please keep it that way: add only achievements, employers, dates, metrics, qualifications and technical skills you can talk about in an interview.
 
 ### Common edits
 
@@ -67,12 +66,13 @@ Run `npm run placeholders` to see which ones are left, with line numbers. **Fill
 | --- | --- |
 | Change the headline or intro | `hero` in `content.ts` |
 | Change the three headline figures | `hero.highlights` |
-| Add a job | Add an entry to the `experience` list (newest first) |
+| Add a job, employer or dates | Add or edit an entry in the `experience` list (newest first) |
 | Add a project | Add an entry to the `projects` list; copy an existing one as a template |
 | Add a skill or tool | `skills` or `tools` |
-| Add my email / LinkedIn | `contact.channels`: set `value` to the text to show, and `href` to `mailto:you@example.com` or the full LinkedIn URL |
+| Add my email / LinkedIn / location | Add entries to `contact.channels` (examples are in the comments). The contact cards appear automatically |
 | Add a photo | Save it as `public/images/profile.jpg`, then set `hero.photo` to `'images/profile.jpg'` |
-| Add a downloadable CV | Save it as `public/Soundarya-Ravoori-CV.pdf`, then set `contact.resume` to `'Soundarya-Ravoori-CV.pdf'` |
+| Add a downloadable CV | Save it as `public/Soundarya-Ravoori-CV.pdf`, then set `contact.resume` to `'Soundarya-Ravoori-CV.pdf'`. The Download CV button only shows once this is set |
+| Add MES training or certifications | Add them to the `mes` section only once they are real (course name, provider, date) |
 | Change colours or fonts | The `:root` block at the top of `src/styles/global.css` |
 | Rename a section heading | The matching file in `src/components/` (e.g. `Experience.astro`) |
 
@@ -80,8 +80,6 @@ Run `npm run placeholders` to see which ones are left, with line numbers. **Fill
 
 ```
 ├── public/                  Files copied as-is (favicon, photo, CV)
-├── scripts/
-│   └── list-placeholders.mjs
 ├── src/
 │   ├── data/content.ts      ← all text on the site
 │   ├── components/          One file per section, plus small helpers
@@ -120,7 +118,7 @@ Add the domain in your host's settings (GitHub Pages: **Settings → Pages → C
 
 ## Before you share it: checklist
 
-- [ ] `npm run placeholders` reports **0** placeholders
+- [ ] Contact details added to `contact.channels` (the Contact section has no email or LinkedIn until you do)
 - [ ] Email and LinkedIn links work
 - [ ] Job titles and dates match your CV and LinkedIn
 - [ ] Photo and CV added (optional)

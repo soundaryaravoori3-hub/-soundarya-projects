@@ -1,20 +1,19 @@
 ---
 import { about } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
-import Rich from './Rich.astro';
 ---
 <section id="about" class="section">
   <div class="container">
     <SectionHeader index="01" eyebrow="About" title="Planning discipline, operational follow-through." />
     <div class="about-grid">
       <div class="about-copy reveal">
-        {about.paragraphs.map((p) => <p><Rich text={p} /></p>)}
+        {about.paragraphs.map((p) => <p>{p}</p>)}
       </div>
       <dl class="fact-card reveal">
         {about.facts.map((f) => (
           <div class="fact">
             <dt>{f.label}</dt>
-            <dd><Rich text={f.value} /></dd>
+            <dd>{f.value}</dd>
           </div>
         ))}
       </dl>

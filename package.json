@@ -3,13 +3,12 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Professional portfolio website for Soundarya Ravoori — Product, Project & Operations.",
+  "description": "Professional portfolio website for Soundarya Ravoori \u2014 Product, Project & Operations.",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check",
-    "placeholders": "node scripts/list-placeholders.mjs"
+    "check": "astro check"
   },
   "dependencies": {
     "astro": "^7.3.5"

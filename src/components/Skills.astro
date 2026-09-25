@@ -1,7 +1,6 @@
 ---
 import { skills } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
-import Rich from './Rich.astro';
 ---
 <section id="skills" class="section section-tint">
   <div class="container">
@@ -11,7 +10,7 @@ import Rich from './Rich.astro';
         <article class="skill-card reveal">
           <h3>{s.group}</h3>
           <ul>
-            {s.items.map((i) => <li><Rich text={i} /></li>)}
+            {s.items.map((i) => <li>{i}</li>)}
           </ul>
         </article>
       ))}

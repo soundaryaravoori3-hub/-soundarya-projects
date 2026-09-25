@@ -1,31 +1,33 @@
 ---
 import { experience } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
-import Rich from './Rich.astro';
 ---
 <section id="experience" class="section section-tint">
   <div class="container">
     <SectionHeader
       index="02"
       eyebrow="Experience"
-      title="Where I have worked, and what I did there."
+      title="Experience and education."
       lead="Coordination, roadmapping and supplier operations, now moving into manufacturing technology."
     />
     <ol class="timeline">
       {experience.map((role) => (
         <li class="timeline-item reveal">
           <div class="timeline-meta">
-            <p class="timeline-period"><Rich text={role.period} /></p>
+            <p class="timeline-label">{role.label}</p>
+            {role.period && <p class="timeline-period">{role.period}</p>}
             {role.status && <p class="status-pill">{role.status}</p>}
           </div>
           <article class="role-card">
-            <h3><Rich text={role.title} /></h3>
-            <p class="role-org"><Rich text={role.organisation} /></p>
+            <h3>{role.title}</h3>
+            {role.organisation && <p class="role-org">{role.organisation}</p>}
             {role.summary && <p class="role-summary">{role.summary}</p>}
-            <ul class="role-points">
-              {role.points.map((pt) => <li><Rich text={pt} /></li>)}
-            </ul>
-            {role.tags && (
+            {role.points && role.points.length > 0 && (
+              <ul class="role-points">
+                {role.points.map((pt) => <li>{pt}</li>)}
+              </ul>
+            )}
+            {role.tags && role.tags.length > 0 && (
               <ul class="tags" aria-label="Focus areas">
                 {role.tags.map((t) => <li>{t}</li>)}
               </ul>
