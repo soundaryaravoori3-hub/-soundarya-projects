@@ -1,15 +1,11 @@
 ---
 import { projects } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
+import Metrics from './Metrics.astro';
 ---
 <section id="projects" class="section">
   <div class="container">
-    <SectionHeader
-      index="04"
-      eyebrow="Projects"
-      title="Selected work."
-      lead="Two areas of work from my product and operations experience."
-    />
+    <SectionHeader index="03" eyebrow="Selected work" title="Case studies." />
     <div class="project-grid">
       {projects.map((p) => (
         <article class="project-card reveal">
@@ -17,18 +13,23 @@ import SectionHeader from './SectionHeader.astro';
           <h3>{p.title}</h3>
           <dl class="project-body">
             {p.context && <div><dt>Context</dt><dd>{p.context}</dd></div>}
-            {p.role && <div><dt>My role</dt><dd>{p.role}</dd></div>}
-            {p.approach && p.approach.length > 0 && (
+            {p.role && <div><dt>Role</dt><dd>{p.role}</dd></div>}
+            {p.actions && p.actions.length > 0 && (
               <div>
-                <dt>Approach</dt>
-                <dd><ul>{p.approach.map((a) => <li>{a}</li>)}</ul></dd>
+                <dt>Actions</dt>
+                <dd><ul>{p.actions.map((a) => <li>{a}</li>)}</ul></dd>
               </div>
             )}
-            {p.outcome && <div class="project-outcome"><dt>Outcome</dt><dd>{p.outcome}</dd></div>}
           </dl>
-          {p.tools && p.tools.length > 0 && (
-            <ul class="tags" aria-label="Tools used">
-              {p.tools.map((t) => <li>{t}</li>)}
+          {p.results && p.results.length > 0 && (
+            <div class="project-outcome">
+              <p class="project-results-label">Results</p>
+              <Metrics items={p.results} label="Results" />
+            </div>
+          )}
+          {p.tags && p.tags.length > 0 && (
+            <ul class="tags" aria-label="Tools and areas">
+              {p.tags.map((t) => <li>{t}</li>)}
             </ul>
           )}
         </article>

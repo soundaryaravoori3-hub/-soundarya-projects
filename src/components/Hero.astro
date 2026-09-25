@@ -16,7 +16,7 @@ const photo = hero.photo ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${her
       <p class="hero-intro reveal">{hero.intro}</p>
       <div class="hero-actions reveal">
         <a class="btn btn-primary" href="#experience">View experience</a>
-        <a class="btn btn-ghost" href="#mes">MES & Manufacturing</a>
+        <a class="btn btn-ghost" href="#projects">Selected work</a>
       </div>
       <div class="role-block reveal">
         <p class="role-list-label">Open to</p>
@@ -35,8 +35,8 @@ const photo = hero.photo ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${her
         )}
         <div>
           <p class="hero-card-name">{site.name}</p>
-          <p class="hero-card-role">MBA, Project Management</p>
-          <p class="hero-card-next"><span class="dot"></span>Next: IT/MES at Kryon Technology</p>
+          <p class="hero-card-role">{hero.qualifications}</p>
+          <p class="hero-card-next"><span class="dot"></span>{hero.current}</p>
         </div>
       </div>
       <dl class="stats">

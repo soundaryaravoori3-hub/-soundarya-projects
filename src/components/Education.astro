@@ -1,0 +1,18 @@
+---
+import { education } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+---
+<section id="education" class="section">
+  <div class="container">
+    <SectionHeader index="06" eyebrow="Education" title="Qualifications." />
+    <ul class="edu-grid">
+      {education.map((e) => (
+        <li class="edu-card reveal">
+          <h3>{e.degree}</h3>
+          <p class="edu-institution">{e.institution}</p>
+          <p class="edu-country">{e.country}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

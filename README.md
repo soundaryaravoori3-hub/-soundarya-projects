@@ -1,8 +1,8 @@
 # Soundarya Ravoori — Portfolio
 
-A professional portfolio for **Soundarya Ravoori**, a Product, Project and Operations professional with an MBA in Project Management, moving into an IT/MES role at Kryon Technology.
+A professional portfolio for **Soundarya Ravoori**, an MBA-qualified Product and Operations Manager working across product management, operations, project delivery and manufacturing technology.
 
-It is a single-page site with these sections: **Home, About, Experience, MES & Manufacturing, Projects, Skills, Tools and Contact**. The colours are navy, sky blue and white with a subtle yellow accent, and the layout works on phones as well as desktops.
+It is a single-page site with these sections: **Home, About, Experience, Selected work, Manufacturing Technology, Skills & tools, Education and Contact**. The colours are navy, sky blue and white with a subtle yellow accent, and the layout works on phones as well as desktops.
 
 ---
 
@@ -44,7 +44,7 @@ npm run check          # type-check the project
 
 ### Adding information later
 
-The site only shows information that has been verified. Details that aren't known yet (employers, dates, university, contact details, CV, MES training) are left out rather than shown as gaps.
+The site only shows information that has been verified. Details that aren't available yet (contact details, CV, photo) are left out rather than shown as gaps.
 
 Many fields in `content.ts` are marked **optional**. Add one and it appears on the site automatically. Leave it out and it's hidden cleanly. For example, to add an employer and dates to a role:
 
@@ -65,14 +65,16 @@ Many fields in `content.ts` are marked **optional**. Add one and it appears on t
 | I want to… | Where |
 | --- | --- |
 | Change the headline or intro | `hero` in `content.ts` |
-| Change the three headline figures | `hero.highlights` |
+| Change the headline figures in the top card | `hero.highlights` |
 | Add a job, employer or dates | Add or edit an entry in the `experience` list (newest first) |
 | Add a project | Add an entry to the `projects` list; copy an existing one as a template |
 | Add a skill or tool | `skills` or `tools` |
+| Add a result to a job or case study | `metrics` on an `experience` entry, or `results` on a `projects` entry |
+| Add a qualification | `education` |
 | Add my email / LinkedIn / location | Add entries to `contact.channels` (examples are in the comments). The contact cards appear automatically |
 | Add a photo | Save it as `public/images/profile.jpg`, then set `hero.photo` to `'images/profile.jpg'` |
 | Add a downloadable CV | Save it as `public/Soundarya-Ravoori-CV.pdf`, then set `contact.resume` to `'Soundarya-Ravoori-CV.pdf'`. The Download CV button only shows once this is set |
-| Add MES training or certifications | Add them to the `mes` section only once they are real (course name, provider, date) |
+| Add training or certifications | Add them only once they are real (course name, provider, date) |
 | Change colours or fonts | The `:root` block at the top of `src/styles/global.css` |
 | Rename a section heading | The matching file in `src/components/` (e.g. `Experience.astro`) |
 

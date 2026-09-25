@@ -3,228 +3,258 @@
  *  PORTFOLIO CONTENT — edit this file to update the website.
  * ─────────────────────────────────────────────────────────────────────────────
  *
- *  Content rule for this site: only verified facts. Do not add achievements,
- *  employers, dates, metrics, qualifications or technical skills that you
- *  cannot stand behind in an interview.
+ *  Content rule for this site: only verified facts from your resume. Do not
+ *  add achievements, employers, dates, metrics, qualifications or technical
+ *  skills that you cannot stand behind in an interview.
  *
- *  Fields marked "optional" can be left out. The site hides them cleanly, so
- *  add them only once you have the real information (see README).
+ *  Fields marked "optional" can be left out. The site hides them cleanly.
  */
+
+export type Metric = { value: string; label: string };
 
 export const site = {
   name: 'Soundarya Ravoori',
   initials: 'SR',
-  title: 'Soundarya Ravoori | Product, Project, MES & Operations',
+  title: 'Soundarya Ravoori | Product Management & Operations',
   description:
-    'Product Management, Project Management, MES & Manufacturing Technology and Operations. MBA in Project Management, moving into an IT/MES role at Kryon Technology.',
+    'MBA-qualified Product and Operations Manager with experience across product delivery, operational planning, supplier coordination and manufacturing technology.',
 };
 
 export const nav = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
-  { label: 'MES', href: '#mes' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Work', href: '#projects' },
+  { label: 'Manufacturing', href: '#manufacturing' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Tools', href: '#tools' },
+  { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ];
 
 /* ── Home ─────────────────────────────────────────────────────────────────── */
 export const hero = {
-  positioning: [
-    'Product Management',
-    'Project Management',
-    'MES & Manufacturing Technology',
-    'Operations',
-  ],
-  headline: 'I connect teams, plans and suppliers so the work gets delivered.',
+  positioning: ['Product Management', 'Operations', 'Project Delivery', 'Manufacturing Technology'],
+  headline: 'I turn product plans and operational priorities into delivered results.',
   intro:
-    'MBA in Project Management with experience in product roadmapping, cross-functional coordination and supplier operations. I am now moving into an IT/MES role at Kryon Technology.',
-  targetRoles: [
-    'Product Manager',
-    'Project Manager',
-    'MES / Manufacturing Technology',
-    'Operations',
-  ],
-  // Headline figures. Only use numbers you can verify.
+    'MBA-qualified Product and Operations Manager with experience across product delivery, operational planning, supplier coordination and manufacturing technology. I’ve managed concurrent product workstreams, coordinated cross-functional teams and worked with SAP and MES environments.',
+  targetRoles: ['Product Manager', 'Operations Manager', 'Project Manager', 'Manufacturing Technology'],
+  qualifications: 'MBA, Project Management · B.Tech, Computer Science Engineering',
+  current: 'Product Manager / Operations Manager, Mollington Banastre',
+  // Headline figures shown in the hero card. Only use verified numbers.
   highlights: [
-    { value: '6', label: 'Vendors managed in supplier operations' },
-    { value: '20–24', label: 'Invoices processed every week' },
-    { value: '3', label: 'Roadmap tools: Jira, Asana, Notion' },
-  ],
+    { value: '4', label: 'Concurrent software products delivered on schedule' },
+    { value: '30%', label: 'Reduction in cross-team blockers' },
+    { value: '40', label: 'Team members across four concurrent workstreams' },
+    { value: '50+', label: 'Appointments a month with zero scheduling errors' },
+  ] as Metric[],
   // Optional: add a portrait at public/images/profile.jpg and set this to 'images/profile.jpg'.
   photo: '',
 };
 
 /* ── About ────────────────────────────────────────────────────────────────── */
 export const about = {
+  title: 'Product, operations and project delivery.',
   paragraphs: [
-    'I work where planning meets execution. My experience covers cross-functional coordination across design, development and strategy teams, building product roadmaps in Jira, Asana and Notion, and managing supplier operations across six vendors: weekly invoicing, purchase orders, compliance and supplier escalations.',
-    'My MBA in Project Management gave me a structured way to scope, plan and track work. I am now moving into manufacturing technology through an IT/MES role at Kryon Technology.',
-  ],
-  pillars: [
-    {
-      title: 'Product',
-      text: 'Turning input from design, development and strategy into roadmaps that teams can act on.',
-    },
-    {
-      title: 'Project',
-      text: 'Structured planning and coordination, backed by an MBA in Project Management.',
-    },
-    {
-      title: 'Operations',
-      text: 'Keeping suppliers, invoices, purchase orders and compliance moving week to week.',
-    },
+    'I work where planning meets execution: turning roadmaps, priorities and operational plans into coordinated delivery across teams.',
+    'My background combines a B.Tech in Computer Science Engineering with an MBA in Project Management, applied across software product delivery, operations and purchasing, and project coordination.',
   ],
   facts: [
-    { label: 'Focus', value: 'Product Management · Project Management · MES & Manufacturing Technology · Operations' },
-    { label: 'Education', value: 'MBA, Project Management' },
-    { label: 'Next role', value: 'IT/MES, Kryon Technology' },
+    { label: 'Product', value: 'Roadmaps, priorities, milestones, dependencies and cross-functional handovers' },
+    { label: 'Operations', value: 'SAP purchasing, supplier coordination, invoice verification and SOP compliance' },
+    { label: 'Project delivery', value: 'Concurrent workstreams, requirements, risk logs and issue tracking' },
   ],
 };
 
 /* ── Experience ───────────────────────────────────────────────────────────── */
 export type Role = {
-  label: string; // short tag shown beside the card, e.g. "Operations"
   title: string;
-  organisation?: string; // optional
-  period?: string; // optional, e.g. "Jan 2023 – Dec 2024"
-  status?: string; // optional highlight, e.g. "Incoming role"
-  summary?: string; // optional
+  organisation: string;
+  period: string;
+  status?: string; // optional highlight, e.g. "Current"
+  metrics?: Metric[]; // optional
   points?: string[]; // optional
   tags?: string[]; // optional
 };
 
 export const experience: Role[] = [
   {
-    label: 'MES & Manufacturing',
-    title: 'IT / MES role',
-    organisation: 'Kryon Technology',
-    status: 'Incoming role',
-    summary: 'Moving into an IT/MES role focused on manufacturing technology.',
-    tags: ['IT', 'MES', 'Manufacturing technology'],
-  },
-  {
-    label: 'Product & Project',
-    title: 'Product & Project Coordination',
-    summary: 'Product and project coordination across design, development and strategy.',
+    title: 'Product Manager / Operations Manager',
+    organisation: 'Mollington Banastre, UK',
+    period: 'March 2026 – Present',
+    status: 'Current',
     points: [
-      'Coordinated work across design, development and strategy teams.',
-      'Built and maintained product roadmaps using Jira, Asana and Notion.',
+      'Manage purchasing in SAP.',
+      'Coordinate suppliers and follow-ups.',
+      'Verify invoices against purchase orders and delivery notes.',
+      'Coordinate daily operational coverage for 10 team members.',
+      'Maintain SOP compliance and corrective-action documentation.',
+      'Resolve operational issues.',
     ],
-    tags: ['Product roadmaps', 'Cross-functional', 'Jira', 'Asana', 'Notion'],
+    tags: ['SAP', 'Purchasing', 'Supplier Coordination', 'Purchase Orders', 'Invoice Verification', 'Operations', 'Compliance'],
   },
   {
-    label: 'Operations',
-    title: 'Supplier Operations',
-    summary: 'Supplier operations for a portfolio of six vendors.',
+    title: 'Product Manager',
+    organisation: 'Station-S',
+    period: 'March 2025 – January 2026',
+    metrics: [
+      { value: '4', label: 'Concurrent software products delivered on schedule' },
+      { value: '30%', label: 'Reduction in cross-team blockers' },
+      { value: '20', label: 'Team members in delivery' },
+    ],
     points: [
-      'Managed supplier operations across 6 vendors.',
-      'Processed 20–24 invoices every week.',
-      'Managed purchase orders.',
-      'Handled supplier compliance.',
-      'Managed supplier escalations.',
+      'Managed roadmaps, priorities, milestones, dependencies and cross-functional handovers.',
+      'Coordinated design, development and strategy teams.',
     ],
-    tags: ['Supplier management', 'Invoicing', 'Purchase orders', 'Compliance', 'Escalations'],
+    tags: ['Product roadmaps', 'Delivery', 'Jira', 'Asana', 'Notion'],
   },
   {
-    label: 'Education',
-    title: 'MBA, Project Management',
-    summary: 'Postgraduate qualification in project management.',
-    tags: ['Education'],
+    title: 'Project Coordinator',
+    organisation: 'Sannie Medical, Wrexham, UK',
+    period: 'September 2022 – March 2025',
+    metrics: [
+      { value: '50+', label: 'Patient appointments coordinated a month' },
+      { value: '0', label: 'Scheduling errors' },
+      { value: '4', label: 'Concurrent workstreams' },
+      { value: '40', label: 'Team members' },
+    ],
+    points: [
+      'Gathered staff requirements and supported software rollout coordination.',
+      'Maintained risk logs, issue trackers, follow-ups and meeting minutes.',
+      'Maintained financial and administrative records using Sage.',
+    ],
+    tags: ['Project coordination', 'Requirements', 'Risk & issue management', 'Sage'],
+  },
+  {
+    title: 'Assistant Manager',
+    organisation: 'Tesco',
+    period: 'February 2021 – September 2022',
+    points: [
+      'Oversaw production and manufacturing activities.',
+      'Monitored production status using MES.',
+      'Tracked production in SAP.',
+    ],
+    tags: ['Production oversight', 'Manufacturing', 'MES', 'SAP'],
   },
 ];
 
-/* ── MES & Manufacturing ──────────────────────────────────────────────────── */
-export const mes = {
-  intro:
-    'MES & Manufacturing Technology is the area I am moving into and developing experience in, starting with an IT/MES role at Kryon Technology. Manufacturing Execution Systems (MES) connect business planning to what happens on the shop floor.',
-  // A short, neutral description of the domain. This describes MES, not your skills.
-  domain: [
-    { title: 'Plan to floor', text: 'Moving production orders from planning systems to the shop floor.' },
-    { title: 'Execution', text: 'Tracking work in progress, materials and equipment as production runs.' },
-    { title: 'Quality & traceability', text: 'Recording what was made, how, and with which materials.' },
-    { title: 'Visibility', text: 'Giving operations and leadership a live view of performance.' },
-  ],
-  // How your verified experience is relevant. Keep these tied to real work.
-  bridges: [
-    {
-      from: 'Cross-functional coordination across design, development and strategy',
-      to: 'MES work depends on aligning IT, operations and production teams',
-    },
-    {
-      from: 'Product roadmaps in Jira, Asana and Notion',
-      to: 'MES rollouts and enhancements need clear planning and tracking',
-    },
-    {
-      from: 'Supplier operations: 6 vendors, POs, compliance, escalations',
-      to: 'Manufacturing relies on well-run supply, controls and issue handling',
-    },
-  ],
-  currentFocus:
-    'I am developing my MES and manufacturing technology experience through my move into an IT/MES role at Kryon Technology, building on my background in product, project and operations work.',
-};
-
-/* ── Projects ─────────────────────────────────────────────────────────────── */
+/* ── Selected work ────────────────────────────────────────────────────────── */
 export type Project = {
   title: string;
   category: string;
   context?: string; // optional
   role?: string; // optional
-  approach?: string[]; // optional
-  outcome?: string; // optional: add only a verified result
-  tools?: string[]; // optional
+  actions?: string[]; // optional
+  results?: Metric[]; // optional: verified results only
+  tags?: string[]; // optional
 };
 
 export const projects: Project[] = [
   {
-    title: 'Product roadmap planning',
-    category: 'Product',
-    context: 'Roadmap planning with design, development and strategy teams.',
-    role: 'Built product roadmaps and coordinated input from design, development and strategy.',
-    approach: ['Structured and tracked roadmap items in Jira, Asana and Notion.'],
-    tools: ['Jira', 'Asana', 'Notion'],
+    title: 'Product Delivery & Roadmap Coordination',
+    category: 'Product · Station-S',
+    context: 'Four concurrent software products.',
+    role: 'Product Manager coordinating design, development and strategy.',
+    actions: [
+      'Structured workstreams.',
+      'Managed priorities and dependencies.',
+      'Maintained roadmaps and monitored milestones.',
+      'Escalated delivery risks.',
+      'Coordinated cross-functional handovers.',
+    ],
+    results: [
+      { value: '4', label: 'Products delivered on schedule' },
+      { value: '30%', label: 'Fewer cross-team blockers' },
+      { value: '20', label: 'Team members in delivery' },
+    ],
+    tags: ['Jira', 'Asana', 'Notion'],
   },
   {
-    title: 'Supplier operations',
-    category: 'Operations',
-    context: 'Ongoing operations for a portfolio of six vendors.',
-    role: 'Managed invoicing, purchase orders, compliance and supplier escalations.',
-    approach: [
-      'Processed 20–24 invoices every week.',
-      'Managed purchase orders and supplier compliance.',
-      'Handled escalations with vendors.',
+    title: 'Supplier & Operational Coordination',
+    category: 'Operations · Mollington Banastre',
+    context: 'Operational purchasing and supplier coordination.',
+    actions: [
+      'SAP purchasing.',
+      'Supplier follow-ups.',
+      'Purchase-order coordination.',
+      'Invoice verification.',
+      'Operational compliance.',
+      'Issue escalation.',
     ],
+    tags: ['SAP', 'Purchasing', 'Supplier Management', 'Compliance', 'Operations'],
   },
 ];
 
-/* ── Skills ───────────────────────────────────────────────────────────────── */
+/* ── Manufacturing technology ─────────────────────────────────────────────── */
+export const manufacturing = {
+  intro:
+    'MES connects planning with shop-floor execution, production visibility, quality and traceability. This is how my experience applies.',
+  bridges: [
+    { from: 'Cross-functional coordination', to: 'Aligning IT, operations and production teams' },
+    { from: 'Product roadmaps and delivery tracking', to: 'MES implementations, enhancements and rollout planning' },
+    { from: 'Supplier operations, purchase orders and compliance', to: 'Manufacturing supply and operational controls' },
+    { from: 'SAP and MES production exposure', to: 'Manufacturing technology environments' },
+  ],
+  systems: [
+    { name: 'MES', where: 'Production status monitoring at Tesco' },
+    { name: 'SAP', where: 'Production tracking at Tesco; purchasing at Mollington Banastre' },
+  ],
+};
+
+/* ── Skills & tools ───────────────────────────────────────────────────────── */
 export const skills = [
   {
-    group: 'Product management',
-    items: ['Product roadmapping', 'Cross-functional coordination', 'Working with design, development and strategy teams'],
-  },
-  {
-    group: 'Project management',
-    items: ['Project planning and coordination (MBA, Project Management)', 'Stakeholder coordination'],
+    group: 'Product & delivery',
+    items: [
+      'Product roadmaps',
+      'Requirements gathering',
+      'Prioritisation',
+      'Milestone tracking',
+      'Dependency tracking',
+      'Risk & issue management',
+      'Stakeholder coordination',
+      'Release coordination',
+    ],
   },
   {
     group: 'Operations',
-    items: ['Supplier management', 'Invoice processing', 'Purchase orders', 'Supplier compliance', 'Escalation management'],
+    items: [
+      'Supplier coordination',
+      'Purchase orders',
+      'Invoice verification',
+      'Operational planning',
+      'Staff scheduling',
+      'SOP compliance',
+      'Escalation management',
+    ],
+  },
+  {
+    group: 'Manufacturing technology',
+    items: ['SAP purchasing', 'SAP production oversight', 'MES', 'Production monitoring', 'Manufacturing operations'],
   },
 ];
 
-/* ── Tools ────────────────────────────────────────────────────────────────── */
-export const tools = [
-  { name: 'Jira', use: 'Product roadmaps and work tracking' },
-  { name: 'Asana', use: 'Product roadmaps and task coordination' },
-  { name: 'Notion', use: 'Product roadmaps and documentation' },
+export const tools: { name: string; use?: string }[] = [
+  { name: 'Jira', use: 'Roadmaps and delivery tracking' },
+  { name: 'Asana', use: 'Roadmaps and task coordination' },
+  { name: 'Notion', use: 'Roadmaps and documentation' },
+  { name: 'SAP', use: 'Purchasing and production tracking' },
+  { name: 'Sage', use: 'Financial and administrative records' },
+  { name: 'Microsoft 365' },
+];
+
+/* ── Education ────────────────────────────────────────────────────────────── */
+export const education = [
+  { degree: 'MBA in Project Management', institution: 'Wrexham University', country: 'United Kingdom' },
+  {
+    degree: 'B.Tech in Computer Science Engineering',
+    institution: 'R.M.K. College of Engineering and Technology',
+    country: 'India',
+  },
 ];
 
 /* ── Contact ──────────────────────────────────────────────────────────────── */
 export const contact = {
-  heading: "Let's talk about product, project, MES and operations work.",
-  text: 'I welcome conversations about Product Manager, Project Manager, MES / Manufacturing Technology and Operations opportunities.',
+  heading: "Let's talk.",
+  text: 'Open to conversations with recruiters and hiring teams.',
   // Add your details here when ready; the cards appear automatically. Examples:
   //   { label: 'Email', value: 'you@example.com', href: 'mailto:you@example.com' },
   //   { label: 'LinkedIn', value: 'linkedin.com/in/your-name', href: 'https://www.linkedin.com/in/your-name' },
