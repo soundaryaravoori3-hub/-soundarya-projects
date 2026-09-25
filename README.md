@@ -1,6 +1,6 @@
 # Soundarya Ravoori — Portfolio
 
-A professional portfolio for **Soundarya Ravoori**, an MBA-qualified Product and Operations Manager working across product management, operations, project delivery and manufacturing technology.
+A professional portfolio for **Soundarya Ravoori**, an MBA-qualified professional with experience across product management, project delivery and operations, currently IT / MES Assistant Manager at Kryon Technology.
 
 It is a single-page site with these sections: **Home, About, Experience, Selected work, Manufacturing Technology, Skills & tools, Education and Contact**. The colours are navy, sky blue and white with a subtle yellow accent, and the layout works on phones as well as desktops.
 
@@ -46,13 +46,12 @@ npm run check          # type-check the project
 
 The site only shows information that has been verified. Details that aren't available yet (contact details, CV, photo) are left out rather than shown as gaps.
 
-Many fields in `content.ts` are marked **optional**. Add one and it appears on the site automatically. Leave it out and it's hidden cleanly. For example, to add an employer and dates to a role:
+Many fields in `content.ts` are marked **optional**. Add one and it appears on the site automatically. Leave it out and it's hidden cleanly. For example, to add dates to a role:
 
 ```ts
 {
-  label: 'Operations',
-  title: 'Supplier Operations',
-  organisation: 'Company name',     // optional
+  title: 'Product Manager',
+  organisation: 'Company name',
   period: 'Jan 2023 – Dec 2024',    // optional
   ...
 }

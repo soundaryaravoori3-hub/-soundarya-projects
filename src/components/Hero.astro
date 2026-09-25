@@ -1,5 +1,5 @@
 ---
-import { hero, site } from '../data/content';
+import { currentRole, hero, site } from '../data/content';
 const photo = hero.photo ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${hero.photo}` : '';
 ---
 <section id="home" class="hero">
@@ -36,13 +36,14 @@ const photo = hero.photo ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${her
         <div>
           <p class="hero-card-name">{site.name}</p>
           <p class="hero-card-role">{hero.qualifications}</p>
-          <p class="hero-card-next"><span class="dot"></span>{hero.current}</p>
+          <p class="hero-card-next"><span class="dot"></span><span><span class="hero-card-now">Current role</span>{currentRole.title}, {currentRole.organisation}</span></p>
         </div>
       </div>
+      <p class="stats-label">Career highlights · previous roles</p>
       <dl class="stats">
         {hero.highlights.map((h) => (
           <div class="stat">
-            <dt>{h.label}</dt>
+            <dt>{h.label}{h.source && <span class="stat-source">{h.source}</span>}</dt>
             <dd>{h.value}</dd>
           </div>
         ))}

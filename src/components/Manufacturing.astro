@@ -4,25 +4,33 @@ import SectionHeader from './SectionHeader.astro';
 ---
 <section id="manufacturing" class="section section-dark">
   <div class="container">
-    <SectionHeader
-      index="04"
-      eyebrow="Manufacturing Technology"
-      title="Experience that transfers to manufacturing technology."
-      lead={manufacturing.intro}
-      tone="dark"
-    />
+    <SectionHeader index="04" eyebrow="Current focus" title="Manufacturing Technology" lead={manufacturing.lead} tone="dark" />
+
+    <ol class="path reveal" aria-label="Career progression">
+      {manufacturing.path.map((p, i) => (
+        <li class:list={['path-step', { current: p.current }]}>
+          <span class="path-num">{String(i + 1).padStart(2, '0')}{p.current && <span class="status-pill">Current</span>}</span>
+          <h3>{p.step}</h3>
+          <p>{p.detail}</p>
+        </li>
+      ))}
+    </ol>
+
     <div class="mes-split">
-      <ul class="bridges reveal">
-        {manufacturing.bridges.map((b) => (
-          <li class="bridge">
-            <p class="bridge-from"><span class="bridge-label">Experience</span>{b.from}</p>
-            <span class="bridge-arrow" aria-hidden="true">→</span>
-            <p class="bridge-to"><span class="bridge-label">Relevant to</span>{b.to}</p>
-          </li>
-        ))}
-      </ul>
+      <div class="reveal">
+        <h3 class="sub-heading on-dark">How my experience transfers</h3>
+        <ul class="bridges">
+          {manufacturing.bridges.map((b) => (
+            <li class="bridge">
+              <p class="bridge-from"><span class="bridge-label">Experience</span>{b.from}</p>
+              <span class="bridge-arrow" aria-hidden="true">→</span>
+              <p class="bridge-to"><span class="bridge-label">Relevant to</span>{b.to}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div class="focus-card reveal">
-        <h3 class="sub-heading">Systems used</h3>
+        <h3 class="sub-heading">SAP & MES experience</h3>
         <dl class="systems">
           {manufacturing.systems.map((s) => (
             <div class="system">

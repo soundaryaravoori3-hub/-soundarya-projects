@@ -5,15 +5,16 @@ import Metrics from './Metrics.astro';
 ---
 <section id="projects" class="section">
   <div class="container">
-    <SectionHeader index="03" eyebrow="Selected work" title="Case studies." />
-    <div class="project-grid">
+    <SectionHeader index="03" eyebrow="Selected work" title="Case study." />
+    <div class:list={['project-grid', { single: projects.length === 1 }]}>
       {projects.map((p) => (
         <article class="project-card reveal">
-          <p class="project-category">{p.category}</p>
-          <h3>{p.title}</h3>
+          <header class="project-head">
+            <p class="project-category">{p.category}</p>
+            <h3>{p.title}</h3>
+          </header>
           <dl class="project-body">
-            {p.context && <div><dt>Context</dt><dd>{p.context}</dd></div>}
-            {p.role && <div><dt>Role</dt><dd>{p.role}</dd></div>}
+            {p.challenge && <div><dt>Challenge</dt><dd>{p.challenge}</dd></div>}
             {p.actions && p.actions.length > 0 && (
               <div>
                 <dt>Actions</dt>
@@ -21,17 +22,22 @@ import Metrics from './Metrics.astro';
               </div>
             )}
           </dl>
-          {p.results && p.results.length > 0 && (
-            <div class="project-outcome">
-              <p class="project-results-label">Results</p>
-              <Metrics items={p.results} label="Results" />
-            </div>
-          )}
-          {p.tags && p.tags.length > 0 && (
-            <ul class="tags" aria-label="Tools and areas">
-              {p.tags.map((t) => <li>{t}</li>)}
-            </ul>
-          )}
+          <div class="project-side">
+            {p.results && p.results.length > 0 && (
+              <div class="project-outcome">
+                <p class="project-results-label">Results</p>
+                <Metrics items={p.results} label="Results" />
+              </div>
+            )}
+            {p.tools && p.tools.length > 0 && (
+              <div class="project-tools">
+                <p class="project-results-label">Tools</p>
+                <ul class="tags" aria-label="Tools">
+                  {p.tools.map((t) => <li>{t}</li>)}
+                </ul>
+              </div>
+            )}
+          </div>
         </article>
       ))}
     </div>

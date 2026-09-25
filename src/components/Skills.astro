@@ -9,6 +9,7 @@ import SectionHeader from './SectionHeader.astro';
       {skills.map((s) => (
         <article class="skill-card reveal">
           <h3>{s.group}</h3>
+          <p class="skill-source">{s.source}</p>
           <ul>
             {s.items.map((i) => <li>{i}</li>)}
           </ul>
@@ -22,7 +23,8 @@ import SectionHeader from './SectionHeader.astro';
           <span class="tool-mark" aria-hidden="true">{t.name.charAt(0)}</span>
           <div>
             <p class="tool-name">{t.name}</p>
-            {t.use && <p class="tool-use">{t.use}</p>}
+            <p class="tool-use">{t.use}</p>
+            <p class="tool-source">{t.source}</p>
           </div>
         </li>
       ))}
