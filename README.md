@@ -103,7 +103,9 @@ The site builds to static files in `dist/`, so you can host it almost anywhere f
 2. On GitHub, open **Settings → Pages** and set **Source** to **GitHub Actions**.
 3. Each push to `main` then builds and publishes the site. You can also run it by hand from the **Actions** tab (**Deploy portfolio to GitHub Pages → Run workflow**).
 
-The site will be at `https://<your-github-username>.github.io/<repository-name>/`. The workflow sets the correct base path automatically.
+The portfolio is published as a GitHub **user site** at **https://soundaryaravoori3-hub.github.io/**. For that, the repository must be named exactly `soundaryaravoori3-hub.github.io`. GitHub serves a repository with that name from the root of the domain, and any other name from `/<repository-name>/`.
+
+The workflow reads the correct address and base path from GitHub (`actions/configure-pages`) on every build. You don't need to change any code if the repository is renamed.
 
 ### Option 2: Netlify or Vercel
 
