@@ -1,0 +1,16 @@
+---
+import type { Metric } from '../data/content';
+interface Props {
+  items: Metric[];
+  label: string;
+}
+const { items, label } = Astro.props;
+---
+<dl class="metric-row" aria-label={label}>
+  {items.map((m) => (
+    <div class="metric">
+      <dd>{m.value}</dd>
+      <dt>{m.label}</dt>
+    </div>
+  ))}
+</dl>

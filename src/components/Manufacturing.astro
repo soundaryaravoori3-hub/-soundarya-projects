@@ -1,0 +1,37 @@
+---
+import { manufacturing } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+---
+<section id="manufacturing" class="section section-dark">
+  <div class="container">
+    <SectionHeader
+      index="04"
+      eyebrow="Manufacturing Technology"
+      title="Experience that transfers to manufacturing technology."
+      lead={manufacturing.intro}
+      tone="dark"
+    />
+    <div class="mes-split">
+      <ul class="bridges reveal">
+        {manufacturing.bridges.map((b) => (
+          <li class="bridge">
+            <p class="bridge-from"><span class="bridge-label">Experience</span>{b.from}</p>
+            <span class="bridge-arrow" aria-hidden="true">→</span>
+            <p class="bridge-to"><span class="bridge-label">Relevant to</span>{b.to}</p>
+          </li>
+        ))}
+      </ul>
+      <div class="focus-card reveal">
+        <h3 class="sub-heading">Systems used</h3>
+        <dl class="systems">
+          {manufacturing.systems.map((s) => (
+            <div class="system">
+              <dt>{s.name}</dt>
+              <dd>{s.where}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
